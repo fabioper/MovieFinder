@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">@color/watermelon</color>
+    <color name="colorPrimaryDark">@color/fadedRed</color>
+    <color name="colorAccent">@color/watermelon</color>
+
+    <color name="white">#fafafa</color>
+    <color name="watermelon">#f94d58</color>
+    <color name="fadedRed">#d4464f</color>
+    <color name="salmonPink">#fe7c84</color>
+    <color name="charcoalGrey">#2e353b</color>
+    <color name="black">#1a1a1a</color>
+    <color name="whiteFull">#ffffff</color>
+    <color name="grey">#dadada</color>
+    <color name="orangish">#f77855</color>
+    <color name="maize">#f3bc52</color>
+    <color name="greyishBrown">#545454</color>
 </resources>
