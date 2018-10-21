@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/movieDetailsImage"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@color/grey"
+        android:contentDescription="@string/movie_details_image_content_description" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movieDetailsImage">
+
+        <TextView
+            android:id="@+id/movieDetailsTitle"
+            style="@style/MovieTitleLarge"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:text="@string/movie_details_title" />
+
+        <ImageView
+            android:id="@+id/movieDetailsFavouriteIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/default_spacing"
+            android:layout_weight="0"
+            android:contentDescription="@string/favourite_icon_content_description"
+            app:srcCompat="@drawable/ic_favorite_icon" />
+
+        <ImageView
+            android:id="@+id/movieDetailsShareIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:contentDescription="@string/share_icon_content_description"
+            app:srcCompat="@drawable/ic_share_icon" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/movieDetailsReleaseYear"
+        style="@style/ReleaseYearText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_spacing"
+        android:background="@drawable/release_date_label_background"
+        android:paddingStart="@dimen/small_spacing"
+        android:paddingTop="6dp"
+        android:paddingEnd="@dimen/small_spacing"
+        android:paddingBottom="6dp"
+        android:text="@string/movie_details_release_date"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <TextView
+        android:id="@+id/MovieDetailsOverviewText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_spacing"
+        android:text="@string/movie_details_overview_text"
+        style="@style/ParagraphText"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="@+id/movieDetailsReleaseYear"
+        app:layout_constraintTop_toBottomOf="@+id/movieDetailsReleaseYear" />
+
+    <TextView
+        android:id="@+id/movieDetailsInfoLabel"
+        style="@style/InfoLabelText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/default_spacing"
+        android:text="@string/movie_details_info_label_overview"
+        android:textAllCaps="true"
+        app:layout_constraintEnd_toEndOf="@+id/MovieDetailsOverviewText"
+        app:layout_constraintStart_toStartOf="@+id/MovieDetailsOverviewText"
+        app:layout_constraintTop_toBottomOf="@+id/MovieDetailsOverviewText" />
+
+
+</android.support.constraint.ConstraintLayout>
