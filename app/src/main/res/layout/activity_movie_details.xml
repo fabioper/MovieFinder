@@ -10,7 +10,6 @@
         android:id="@+id/movieDetailsImage"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:background="@color/grey"
         android:contentDescription="@string/movie_details_image_content_description" />
 
     <LinearLayout
@@ -20,7 +19,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:gravity="center_vertical"
+        android:gravity="center_vertical|fill_vertical"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +29,7 @@
             android:id="@+id/movieDetailsTitle"
             style="@style/MovieTitleLarge"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="3"
             android:text="@string/movie_details_title" />
 
@@ -65,10 +64,13 @@
         android:paddingBottom="6dp"
         android:text="@string/movie_details_release_date"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        android:shadowDy="4"
+        android:shadowRadius="4"
+        android:shadowColor="#40f94d58"/>
 
     <TextView
-        android:id="@+id/MovieDetailsOverviewText"
+        android:id="@+id/movieDetailsOverviewText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/default_spacing"
@@ -86,9 +88,9 @@
         android:layout_marginTop="@dimen/default_spacing"
         android:text="@string/movie_details_info_label_overview"
         android:textAllCaps="true"
-        app:layout_constraintEnd_toEndOf="@+id/MovieDetailsOverviewText"
-        app:layout_constraintStart_toStartOf="@+id/MovieDetailsOverviewText"
-        app:layout_constraintTop_toBottomOf="@+id/MovieDetailsOverviewText" />
+        app:layout_constraintEnd_toEndOf="@+id/movieDetailsOverviewText"
+        app:layout_constraintStart_toStartOf="@+id/movieDetailsOverviewText"
+        app:layout_constraintTop_toBottomOf="@+id/movieDetailsOverviewText" />
 
 
 </android.support.constraint.ConstraintLayout>

@@ -9,7 +9,7 @@
     </style>
 
     <style name="MovieTitleLarge">
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">22sp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/black</item>
@@ -47,7 +47,7 @@
         <item name="android:textColor">@color/greyishBrown</item>
     </style>
     <style name="ReleaseYearText">
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">bold</item>
         <item name="android:lineSpacingExtra">1.4sp</item>

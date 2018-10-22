@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/movieCard"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
     android:layout_width="wrap_content"
     android:layout_height="@dimen/card_view_height"
     android:layout_margin="8dp"
@@ -16,6 +20,7 @@
             android:id="@+id/movieCardImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:scaleType="centerCrop"
             android:contentDescription="@string/movie_card_image_content_description" />
 
         <View
@@ -36,7 +41,10 @@
             android:layout_marginBottom="@dimen/small_spacing"
             android:gravity="bottom"
             style="@style/MovieCardTitle"
-            android:text="@string/movie_card_title" />
+            android:text="@string/movie_card_title"
+            android:shadowColor="#40000000"
+            android:shadowDy="4"
+            android:shadowRadius="4"/>
     </RelativeLayout>
 
 
