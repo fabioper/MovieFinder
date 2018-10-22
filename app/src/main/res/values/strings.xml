@@ -11,4 +11,6 @@
     <string name="movie_details_overview_text">Overview</string>
     <string name="movie_details_info_label_overview">Popularity:</string>
     <string name="movie_details_release_date">2017</string>
+    <string name="search_movies_title">Search Movies</string>
+    <string name="search_movies_hint">Search Movies</string>
 </resources>
