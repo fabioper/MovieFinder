@@ -6,7 +6,7 @@
     android:foreground="?android:attr/selectableItemBackground"
     android:layout_width="wrap_content"
     android:layout_height="@dimen/card_view_height"
-    android:layout_margin="8dp"
+    android:layout_margin="@dimen/half_default_spacing"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="@dimen/cardCornerRadius"
     app:cardElevation="@dimen/movie_card_elevation">

@@ -56,7 +56,8 @@
             app:layout_constraintTop_toBottomOf="@+id/upcomingMoviesSectionTitle"
             tools:layoutManager="android.support.v7.widget.GridLayoutManager"
             tools:listitem="@layout/movie_card"
-            tools:spanCount="2" />
+            tools:spanCount="2"
+            android:paddingBottom="@dimen/large_spacing"/>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/floatingActionButton"
