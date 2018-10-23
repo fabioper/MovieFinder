@@ -56,20 +56,7 @@
             app:layout_constraintTop_toBottomOf="@+id/upcomingMoviesSectionTitle"
             tools:layoutManager="android.support.v7.widget.GridLayoutManager"
             tools:listitem="@layout/movie_card"
-            tools:spanCount="2"
-            android:paddingBottom="@dimen/large_spacing"/>
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/floatingActionButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:clickable="true"
-            android:focusable="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ic_search_icon" />
+            tools:spanCount="2"/>
 
     </android.support.constraint.ConstraintLayout>
 </android.support.v4.widget.NestedScrollView>

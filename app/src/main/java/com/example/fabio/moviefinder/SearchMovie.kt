@@ -14,9 +14,7 @@ class SearchMovie : AppCompatActivity() {
         setContentView(R.layout.activity_search_movie)
 
         if (Intent.ACTION_SEARCH == intent.action) {
-            intent.getStringExtra(SearchManager.QUERY)?.also { query ->
-                searchMovies(query)
-            }
+            intent.getStringExtra(SearchManager.QUERY)?.also(this::searchMovies)
         }
     }
 
