@@ -65,28 +65,24 @@
         android:paddingBottom="@dimen/tiny_spacing"
         android:text="@string/movie_details_release_date"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        android:shadowDy="4"
-        android:shadowRadius="4"
-        android:shadowColor="#40f94d58"/>
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 
-    <ImageView
+    <View
         android:id="@+id/separator"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:scaleType="centerInside"
+        android:layout_width="40dp"
+        android:layout_height="1dp"
+        android:background="@color/grey"
+        android:layout_marginTop="@dimen/default_spacing"
         app:layout_constraintStart_toStartOf="@+id/movieDetailsReleaseYear"
-        app:layout_constraintTop_toBottomOf="@+id/movieDetailsReleaseYear"
-        app:srcCompat="@drawable/ic_separator_icon" />
+        app:layout_constraintTop_toBottomOf="@+id/movieDetailsReleaseYear" />
 
     <TextView
         android:id="@+id/movieDetailsOverviewText"
         style="@style/ParagraphText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/default_spacing"
         android:text="@string/movie_details_overview_text"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout"
         app:layout_constraintStart_toStartOf="@+id/movieDetailsReleaseYear"

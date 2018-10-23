@@ -47,7 +47,7 @@
         <item name="android:textColor">@color/greyishBrown</item>
     </style>
     <style name="ReleaseYearText">
-        <item name="android:textSize">@dimen/normal_text_size</item>
+        <item name="android:textSize">@dimen/small_text_size</item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textStyle">bold</item>
         <item name="android:lineSpacingExtra">1.4sp</item>
