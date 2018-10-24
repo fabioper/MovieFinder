@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.widget.Toast
 
-class SearchMovie : AppCompatActivity() {
+class SearchMovieActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

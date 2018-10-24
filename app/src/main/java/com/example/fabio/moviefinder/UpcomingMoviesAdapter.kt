@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import com.example.fabio.moviefinder.MovieFinderService.getMoviePosterURLPath
 import com.example.fabio.moviefinder.tmdbService.MovieListingModel
 import com.squareup.picasso.Picasso
 
@@ -39,7 +38,7 @@ class UpcomingMoviesAdapter(val context: Context, val movies: List<MovieListingM
 
         // Add Click Event Listener
         holder.movieCardView.setOnClickListener {
-            val intent = Intent(context, MovieDetails::class.java)
+            val intent = Intent(context, MovieDetailsActivity::class.java)
             intent.putExtra("movieId", movie.id)
             context.startActivity(intent)
         }
