@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:id="@+id/movieSearchCard"
+    android:layout_width="match_parent"
+    android:layout_height="130dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="3dp"
+    app:cardCornerRadius="@dimen/cardCornerRadius"
+    android:layout_marginBottom="@dimen/default_spacing"
+    android:layout_marginStart="@dimen/default_spacing"
+    android:layout_marginEnd="@dimen/default_spacing"
+    app:cardBackgroundColor="@color/whiteFull"
+    android:padding="@dimen/small_spacing">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="@dimen/small_spacing">
+
+        <ImageView
+            android:id="@+id/movieSearchItemImage"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@color/grey"
+            android:scaleType="centerCrop"
+            android:layout_marginEnd="@dimen/default_spacing"
+            android:layout_weight="1"/>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3">
+
+            <LinearLayout
+                android:id="@+id/movieTitleWrapper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/movieSearchItemTitle"
+                    style="@style/MovieTitleCompact"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/movie_details_title"
+                    android:layout_marginEnd="@dimen/default_spacing"/>
+
+                <TextView
+                    android:id="@+id/movieSearchReleaseYear"
+                    style="@style/ReleaseYearText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/release_date_label_background"
+                    android:paddingStart="@dimen/small_spacing"
+                    android:paddingTop="@dimen/tiny_spacing"
+                    android:paddingEnd="@dimen/small_spacing"
+                    android:paddingBottom="@dimen/tiny_spacing"
+                    android:text="@string/movie_details_release_date" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/movieSearchItemOverview"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/default_spacing"
+                android:text="@string/movie_search_overview_text"
+                style="@style/ParagraphText"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/movieTitleWrapper"
+                app:layout_constraintStart_toStartOf="@+id/movieTitleWrapper"
+                app:layout_constraintTop_toBottomOf="@+id/movieTitleWrapper" />
+        </android.support.constraint.ConstraintLayout>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

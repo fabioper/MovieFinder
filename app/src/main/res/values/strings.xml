@@ -13,4 +13,5 @@
     <string name="movie_details_release_date">2017</string>
     <string name="search_movies_title">Search Movies</string>
     <string name="search_movies_hint">Search Movies</string>
+    <string name="movie_search_overview_text">%1$s…</string>
 </resources>

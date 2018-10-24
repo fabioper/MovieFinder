@@ -11,13 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data android:name="android.app.default_searchable" android:value=".SearchMovieActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <meta-data android:name="android.app.default_searchable" android:value=".SearchMovie" />
         </activity>
         <activity android:name=".MovieDetailsActivity" />
         <activity android:name=".SearchMovieActivity" android:launchMode="singleTop">
