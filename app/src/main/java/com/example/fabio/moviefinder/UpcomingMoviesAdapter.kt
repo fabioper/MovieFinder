@@ -30,8 +30,8 @@ class UpcomingMoviesAdapter(val context: Context, val movies: List<MovieListingM
 
     override fun onBindViewHolder(holder: UpcomingMoviesAdapter.MovieHolder, position: Int) {
         val movie = movies[position]
-        val moviePosterPath = MovieFinderService.getMoviePosterURLPath(movie.moviePosterPath)
         val movieTitle = movie.title
+        val moviePosterPath = MovieFinderService.getMoviePosterURLPath(movie.moviePosterPath)
 
         holder.movieCardTitle.text = movieTitle
         Picasso.get().load(moviePosterPath).fit().into(holder.movieCardImage)

@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:contentDescription="@string/movie_card_image_content_description" />
+            android:contentDescription="@string/movie_image_content_description" />
 
         <View
             android:layout_width="match_parent"
@@ -42,7 +42,7 @@
             android:layout_marginBottom="@dimen/small_spacing"
             android:gravity="bottom"
             style="@style/MovieCardTitle"
-            android:text="@string/movie_card_title"
+            android:text="@string/movie_title"
             android:shadowColor="#40000000"
             android:shadowDy="4"
             android:shadowRadius="4"/>
