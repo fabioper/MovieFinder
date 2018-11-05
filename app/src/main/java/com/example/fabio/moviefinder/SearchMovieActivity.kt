@@ -21,7 +21,9 @@ class SearchMovieActivity : AppCompatActivity() {
     private fun searchMovies(query: String) {
         val filteredMovies = MovieFinderService.filterMovies(query)
 
-        searchMovieRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        searchMovieRecyclerView.adapter = SearchMovieRecyclerViewAdapter(this, filteredMovies)
+        searchMovieRecyclerView.layoutManager =
+                LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        searchMovieRecyclerView.adapter =
+                SearchMovieRecyclerViewAdapter(this, filteredMovies)
     }
 }

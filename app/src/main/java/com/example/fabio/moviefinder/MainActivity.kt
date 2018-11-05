@@ -15,9 +15,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val moviesService = MovieFinderService.moviesService
-
-        val movies = moviesService.getUpcomingMovies(0).results
+        val movies = MovieFinderService.getUpcomingMovies
 
         recyclerView.layoutManager = GridLayoutManager(this, 2)
         recyclerView.adapter = UpcomingMoviesAdapter(this, movies)
