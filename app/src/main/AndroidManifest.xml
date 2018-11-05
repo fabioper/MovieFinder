@@ -19,8 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MovieDetailsActivity" />
-        <activity android:name=".SearchMovieActivity" android:launchMode="singleTop">
+        <activity android:name=".MovieDetailsActivity" android:parentActivityName=".MainActivity" />
+        <activity android:name=".SearchMovieActivity" android:launchMode="singleTop" android:parentActivityName=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH"/>
             </intent-filter>
