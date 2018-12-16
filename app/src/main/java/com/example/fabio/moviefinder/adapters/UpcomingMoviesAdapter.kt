@@ -1,4 +1,4 @@
-package com.example.fabio.moviefinder
+package com.example.fabio.moviefinder.adapters
 
 import android.content.Context
 import android.content.Intent
@@ -9,17 +9,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import com.example.fabio.moviefinder.tmdbService.MovieListingModel
+import com.example.fabio.moviefinder.MovieDetailsActivity
+import com.example.fabio.moviefinder.MovieFinderService.getMoviePosterURLPath
+import com.example.fabio.moviefinder.R
+import com.example.fabio.moviefinder.tmdbService.MovieListing
 import com.squareup.picasso.Picasso
 
-class UpcomingMoviesAdapter(val context: Context, val movies: List<MovieListingModel>) : RecyclerView.Adapter<UpcomingMoviesAdapter.MovieHolder>() {
+class UpcomingMoviesAdapter(val context: Context, val movies: ArrayList<MovieListing>) : RecyclerView.Adapter<UpcomingMoviesAdapter.MovieHolder>() {
     class MovieHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val movieCardTitle: TextView = itemView.findViewById(R.id.movieCardTitle)
         val movieCardImage: ImageView = itemView.findViewById(R.id.movieCardImage)
         val movieCardView: CardView = itemView.findViewById(R.id.movieCard)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UpcomingMoviesAdapter.MovieHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieHolder {
         val inflater = LayoutInflater.from(context)
         val view = inflater.inflate(R.layout.movie_card, parent, false)
 
@@ -28,10 +31,10 @@ class UpcomingMoviesAdapter(val context: Context, val movies: List<MovieListingM
 
     override fun getItemCount(): Int = movies.size
 
-    override fun onBindViewHolder(holder: UpcomingMoviesAdapter.MovieHolder, position: Int) {
+    override fun onBindViewHolder(holder: MovieHolder, position: Int) {
         val movie = movies[position]
         val movieTitle = movie.title
-        val moviePosterPath = MovieFinderService.getMoviePosterURLPath(movie.moviePosterPath)
+        val moviePosterPath = movie.posterPath?.let { getMoviePosterURLPath(it) }
 
         holder.movieCardTitle.text = movieTitle
         Picasso.get().load(moviePosterPath).fit().into(holder.movieCardImage)

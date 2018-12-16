@@ -1,7 +1,8 @@
-package com.example.fabio.moviefinder
+package com.example.fabio.moviefinder.adapters
 
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -9,10 +10,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import com.example.fabio.moviefinder.tmdbService.MovieListingModel
+import com.example.fabio.moviefinder.MovieDetailsActivity
+import com.example.fabio.moviefinder.MovieFinderService.getMoviePosterURLPath
+import com.example.fabio.moviefinder.MovieFinderService.wrapText
+import com.example.fabio.moviefinder.R
+import com.example.fabio.moviefinder.tmdbService.MovieListing
 import com.squareup.picasso.Picasso
+import java.time.LocalDate
 
-class SearchMovieRecyclerViewAdapter(val context: Context, val filteredMovies: List<MovieListingModel>) : RecyclerView.Adapter<SearchMovieRecyclerViewAdapter.ViewHolder>() {
+class SearchMovieRecyclerViewAdapter(private val context: Context, private val filteredMovies: ArrayList<MovieListing>)
+    : RecyclerView.Adapter<SearchMovieRecyclerViewAdapter.ViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(context)
         val view = inflater.inflate(R.layout.search_movie_results_list_item, parent, false)
@@ -23,11 +31,16 @@ class SearchMovieRecyclerViewAdapter(val context: Context, val filteredMovies: L
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val movie = filteredMovies[position]
-        val movieImageUrl = MovieFinderService.getMoviePosterURLPath(movie.moviePosterPath)
+        val movieImageUrl = movie.posterPath?.let { getMoviePosterURLPath(it) }
 
         holder.movieTitle.text = movie.title
-        holder.movieOverview.text = movie.overview.substring(0, 62) + "..." // TODO: FIX THIS
-        holder.movieReleaseYear.text = movie.releaseDate.split("-")[0]
+        holder.movieOverview.text = wrapText(movie.overview, 62)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            holder.movieReleaseYear.text = LocalDate.parse(movie.releaseDate).year.toString()
+        } else {
+            holder.movieReleaseYear.text = movie.releaseDate.substring(0, 3)
+        }
 
         Picasso.get()
                 .load(movieImageUrl)
