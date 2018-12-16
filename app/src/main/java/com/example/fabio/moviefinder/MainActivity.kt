@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         val call = MovieFinderService.moviesService.getUpcomingMovies()
         Log.d(TAG, "onCreate: retrieving upcoming movies...")
         progressBar.visibility = View.VISIBLE
@@ -36,10 +35,13 @@ class MainActivity : AppCompatActivity() {
 
             override fun onResponse(call: Call<MovieList>, response: Response<MovieList>) {
                 Log.d(TAG, "onResponse: finished retrieving movies: total found: ${response.body()?.totalResults}")
+                GetAllFavorites(this@MainActivity).execute()
                 val movies = response.body()!!.results
                 recyclerView.layoutManager = GridLayoutManager(this@MainActivity, 2)
                 recyclerView.adapter = UpcomingMoviesAdapter(this@MainActivity, movies)
                 progressBar.visibility = View.GONE
+
+                Log.d(TAG, "onResponse: favorite movies: ${MovieFinderService.favorites}")
             }
         })
     }

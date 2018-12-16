@@ -40,26 +40,54 @@ class MovieDetailsActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     progressBar.visibility = View.GONE
                     val movie = response.body()!!
-                    val movieImage = movie.backdropPath?.let { getMoviePosterURLPath(it) }
-
-                    movieDetailsTitle.text = movie.title
-                    movieDetailsOverviewText.text = movie.overview
-
-                    // Assign movie release year
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                        movieDetailsReleaseYear.text = LocalDate.parse(movie.releaseDate).year.toString()
-                    } else {
-                        movieDetailsReleaseYear.text = movie.releaseDate.substring(0, 3)
-                    }
-
-                    // Assign movie image to ImageView
-                    Picasso.get()
-                            .load(movieImage)
-                            .fit()
-                            .error(R.drawable.ic_launcher_background)
-                            .into(movieDetailsImage)
+                    renderUI(movie)
                 }
             }
         })
+
+        movieDetailsFavouriteIcon.setOnClickListener {
+            if (MovieFinderService.favorites.contains(movieId)) {
+                unfavoriteMovie(movieId)
+            } else {
+                favoriteMovie(movieId)
+            }
+        }
+    }
+
+    private fun renderUI(movie: MovieDetails) {
+        val movieImage = movie.backdropPath?.let { getMoviePosterURLPath(it) }
+
+        movieDetailsTitle.text = movie.title
+        movieDetailsOverviewText.text = movie.overview
+
+        // Assign movie release year
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            movieDetailsReleaseYear.text = LocalDate.parse(movie.releaseDate).year.toString()
+        } else {
+            movieDetailsReleaseYear.text = movie.releaseDate.substring(0, 3)
+        }
+
+        // Assign movie image to ImageView
+        Picasso.get()
+            .load(movieImage)
+            .fit()
+            .error(R.drawable.ic_launcher_background)
+            .into(movieDetailsImage)
+
+        if (MovieFinderService.favorites.contains(movie.id)) {
+            movieDetailsFavouriteIcon.setImageDrawable(resources.getDrawable(R.drawable.ic_favorite_icon_colored))
+        } else {
+            movieDetailsFavouriteIcon.setImageDrawable(resources.getDrawable(R.drawable.ic_favorite_icon))
+        }
+    }
+
+    private fun favoriteMovie(movieId: Int) {
+        AddToFavorites(this@MovieDetailsActivity, progressBar).execute(movieId)
+        movieDetailsFavouriteIcon.setImageDrawable(resources.getDrawable(R.drawable.ic_favorite_icon_colored))
+    }
+
+    private fun unfavoriteMovie(movieId: Int) {
+        RemoveFromFavorites(this@MovieDetailsActivity, progressBar).execute(movieId)
+        movieDetailsFavouriteIcon.setImageDrawable(resources.getDrawable(R.drawable.ic_favorite_icon))
     }
 }

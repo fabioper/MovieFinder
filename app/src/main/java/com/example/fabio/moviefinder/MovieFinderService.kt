@@ -7,12 +7,12 @@ import retrofit2.converter.jackson.JacksonConverterFactory
 object MovieFinderService {
     private const val posterBaseUrl = "https://image.tmdb.org/t/p/w500"
     private const val baseUrl = "https://api.themoviedb.org/3/"
+    var favorites: ArrayList<Int> = ArrayList()
 
     private val retrofit = Retrofit.Builder()
             .baseUrl(baseUrl)
             .addConverterFactory(JacksonConverterFactory.create())
             .build()
-
     val moviesService: TMDBService = retrofit.create(TMDBService::class.java)
 
     /* ---------- Helper methods ---------- */
