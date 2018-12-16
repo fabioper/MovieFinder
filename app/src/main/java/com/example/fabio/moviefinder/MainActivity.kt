@@ -40,8 +40,6 @@ class MainActivity : AppCompatActivity() {
                 recyclerView.layoutManager = GridLayoutManager(this@MainActivity, 2)
                 recyclerView.adapter = UpcomingMoviesAdapter(this@MainActivity, movies)
                 progressBar.visibility = View.GONE
-
-                Log.d(TAG, "onResponse: favorite movies: ${MovieFinderService.favorites}")
             }
         })
     }
