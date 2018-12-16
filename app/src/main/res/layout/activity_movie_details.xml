@@ -15,17 +15,19 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_weight="1"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/movieDetailsImage"
         android:layout_width="match_parent"
         android:layout_height="@dimen/movie_details_image_height"
+        android:contentDescription="@string/movie_image_content_description"
         android:scaleType="centerCrop"
-        android:contentDescription="@string/movie_image_content_description" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -102,17 +104,62 @@
         app:layout_constraintStart_toStartOf="@+id/movieDetailsReleaseYear"
         app:layout_constraintTop_toTopOf="@+id/separator" />
 
-    <TextView
-        android:id="@+id/movieDetailsInfoLabel"
-        style="@style/InfoLabelText"
+    <LinearLayout
+        android:id="@+id/movieDetailsPopularityContainer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/default_spacing"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
         android:text="@string/movie_details_info_label_overview"
         android:textAllCaps="true"
         app:layout_constraintEnd_toEndOf="@+id/movieDetailsOverviewText"
         app:layout_constraintStart_toStartOf="@+id/movieDetailsOverviewText"
-        app:layout_constraintTop_toBottomOf="@+id/movieDetailsOverviewText" />
+        app:layout_constraintTop_toBottomOf="@+id/movieDetailsOverviewText">
+
+        <TextView
+            android:id="@+id/movieDetailsInfoLabel"
+            style="@style/InfoLabelText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/small_spacing"
+            android:text="@string/movie_details_info_label_overview"
+            android:textAllCaps="true"
+            app:layout_constraintEnd_toEndOf="@+id/movieDetailsOverviewText"
+            app:layout_constraintStart_toStartOf="@+id/movieDetailsOverviewText"
+            app:layout_constraintTop_toBottomOf="@+id/movieDetailsOverviewText" />
+
+        <ImageView
+            android:id="@+id/star1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_star_icon_colored" />
+
+        <ImageView
+            android:id="@+id/star2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_star_icon_colored" />
+
+        <ImageView
+            android:id="@+id/star3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_star_icon_colored" />
+
+        <ImageView
+            android:id="@+id/star4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_star_icon_colored" />
+
+        <ImageView
+            android:id="@+id/star5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_star_icon_colored" />
+
+    </LinearLayout>
 
 
 </android.support.constraint.ConstraintLayout>
