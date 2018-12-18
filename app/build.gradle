@@ -45,4 +45,7 @@ dependencies {
 
     // Jackson converter
     implementation 'com.squareup.retrofit2:converter-jackson:2.3.0'
+
+    // Like Button
+    implementation 'com.github.jd-alexander:LikeButton:0.2.3'
 }

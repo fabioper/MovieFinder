@@ -7,6 +7,8 @@ import android.util.Log
 import android.view.View
 import com.example.fabio.moviefinder.MovieFinderService.getMoviePosterURLPath
 import com.example.fabio.moviefinder.tmdbService.MovieDetails
+import com.like.LikeButton
+import com.like.OnLikeListener
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_movie_details.*
 import retrofit2.Call
@@ -45,13 +47,15 @@ class MovieDetailsActivity : AppCompatActivity() {
             }
         })
 
-        movieDetailsFavouriteIcon.setOnClickListener {
-            if (MovieFinderService.favorites.contains(movieId)) {
-                unfavoriteMovie(movieId)
-            } else {
+        addToFavoritesButton.setOnLikeListener(object : OnLikeListener {
+            override fun liked(likeButton: LikeButton?) {
                 favoriteMovie(movieId)
             }
-        }
+
+            override fun unLiked(likeButton: LikeButton?) {
+                unfavoriteMovie(movieId)
+            }
+        })
     }
 
     private fun renderUI(movie: MovieDetails) {
@@ -59,6 +63,8 @@ class MovieDetailsActivity : AppCompatActivity() {
 
         movieDetailsTitle.text = movie.title
         movieDetailsOverviewText.text = movie.overview
+        addToFavoritesButton.isLiked = MovieFinderService.favorites.contains(movie.id)
+        ratingBar.rating = ((5 / movie.popularity) * 100).toFloat()
 
         // Assign movie release year
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -73,23 +79,13 @@ class MovieDetailsActivity : AppCompatActivity() {
             .fit()
             .error(R.drawable.ic_launcher_background)
             .into(movieDetailsImage)
-
-        if (MovieFinderService.favorites.contains(movie.id)) {
-            movieDetailsFavouriteIcon.setImageDrawable(resources.getDrawable(R.drawable.ic_favorite_icon_colored))
-        } else {
-            movieDetailsFavouriteIcon.setImageDrawable(resources.getDrawable(R.drawable.ic_favorite_icon))
-        }
-
-        ratingBar.rating = ((5 / movie.popularity) * 100).toFloat()
     }
 
     private fun favoriteMovie(movieId: Int) {
         AddToFavorites(this@MovieDetailsActivity, progressBar).execute(movieId)
-        movieDetailsFavouriteIcon.setImageDrawable(resources.getDrawable(R.drawable.ic_favorite_icon_colored))
     }
 
     private fun unfavoriteMovie(movieId: Int) {
         RemoveFromFavorites(this@MovieDetailsActivity, progressBar).execute(movieId)
-        movieDetailsFavouriteIcon.setImageDrawable(resources.getDrawable(R.drawable.ic_favorite_icon))
     }
 }
