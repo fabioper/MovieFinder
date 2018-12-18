@@ -120,35 +120,12 @@
             app:layout_constraintStart_toStartOf="@+id/movieDetailsOverviewText"
             app:layout_constraintTop_toBottomOf="@+id/movieDetailsOverviewText" />
 
-        <ImageView
-            android:id="@+id/star1"
+        <RatingBar
+            android:id="@+id/ratingBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_star_icon_colored" />
-
-        <ImageView
-            android:id="@+id/star2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_star_icon_colored" />
-
-        <ImageView
-            android:id="@+id/star3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_star_icon_colored" />
-
-        <ImageView
-            android:id="@+id/star4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_star_icon_colored" />
-
-        <ImageView
-            android:id="@+id/star5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_star_icon_colored" />
+            android:isIndicator="true"
+            style="?android:attr/ratingBarStyleIndicator"/>
 
     </LinearLayout>
 

@@ -79,6 +79,8 @@ class MovieDetailsActivity : AppCompatActivity() {
         } else {
             movieDetailsFavouriteIcon.setImageDrawable(resources.getDrawable(R.drawable.ic_favorite_icon))
         }
+
+        ratingBar.rating = ((5 / movie.popularity) * 100).toFloat()
     }
 
     private fun favoriteMovie(movieId: Int) {
