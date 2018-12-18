@@ -35,12 +35,7 @@ class SearchMovieRecyclerViewAdapter(private val context: Context, private val f
 
         holder.movieTitle.text = movie.title
         holder.movieOverview.text = wrapText(movie.overview, 62)
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            holder.movieReleaseYear.text = LocalDate.parse(movie.releaseDate).year.toString()
-        } else {
-            holder.movieReleaseYear.text = movie.releaseDate.substring(0, 3)
-        }
+        holder.movieReleaseYear.text = movie.releaseDate.split("-").first()
 
         Picasso.get()
                 .load(movieImageUrl)

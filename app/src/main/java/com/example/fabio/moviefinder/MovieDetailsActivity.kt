@@ -65,19 +65,12 @@ class MovieDetailsActivity : AppCompatActivity() {
         movieDetailsOverviewText.text = movie.overview
         addToFavoritesButton.isLiked = MovieFinderService.favorites.contains(movie.id)
         ratingBar.rating = ((5 / movie.popularity) * 100).toFloat()
-
-        // Assign movie release year
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            movieDetailsReleaseYear.text = LocalDate.parse(movie.releaseDate).year.toString()
-        } else {
-            movieDetailsReleaseYear.text = movie.releaseDate.substring(0, 3)
-        }
+        movieDetailsReleaseYear.text = movie.releaseDate.split("-").first()
 
         // Assign movie image to ImageView
         Picasso.get()
             .load(movieImage)
             .fit()
-            .error(R.drawable.ic_launcher_background)
             .into(movieDetailsImage)
     }
 
